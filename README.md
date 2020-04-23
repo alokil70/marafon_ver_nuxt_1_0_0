@@ -1,6 +1,6 @@
 # marafon_ver_nuxt_1_0_0
 
-> Marafon
+> MARAFON
 
 ## Build Setup
 
