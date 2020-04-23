@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ProductsList from '../components/ProductsList'
 
 export default {
@@ -22,11 +23,15 @@ export default {
     components: { ProductsList },
     async fetch({ store }) {
         await store.dispatch('products/GET_PRODUCTS_FROM_API')
+        await store.dispatch('products/GET_CATEGORY_FROM_API')
     },
+    /* async fetch({ store }) {
+        await store.dispatch('products/GET_PRODUCTS_FROM_API')
+    }, */
     computed: {
-        products() {
-            return this.$store.getters['products/PRODUCTS']
-        }
+        ...mapState({
+            products: (state) => state.products.products
+        })
     }
 }
 </script>
