@@ -22,12 +22,14 @@ export default {
     layout: 'teatre',
     components: { ProductsList },
     async fetch({ store }) {
-        await store.dispatch('products/GET_PRODUCTS_FROM_API')
-        await store.dispatch('products/GET_CATEGORY_FROM_API')
+        if (
+            store.getters['products/PRODUCTS'].length === 0 &&
+            store.getters['peoducts/CATEGORY'].length === 0
+        ) {
+            await store.dispatch('products/GET_PRODUCTS_FROM_API')
+            await store.dispatch('products/GET_CATEGORY_FROM_API')
+        }
     },
-    /* async fetch({ store }) {
-        await store.dispatch('products/GET_PRODUCTS_FROM_API')
-    }, */
     computed: {
         ...mapState({
             products: (state) => state.products.products

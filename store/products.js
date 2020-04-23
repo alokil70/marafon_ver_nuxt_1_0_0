@@ -21,6 +21,8 @@ export const actions = {
         commit('SET_CATEGORY_TO_STATE', response.data)
     }
 }
+
 export const getters = {
-    PRODUCTS: (s) => s.products
+    PRODUCTS: (s) => s.products,
+    CATEGORY: (s) => s.category
 }

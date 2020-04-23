@@ -15,9 +15,9 @@
 <script>
 export default {
     components: {},
-    fetch({ store }) {
-        store.dispatch('products/GET_PRODUCTS_FROM_API')
-        store.dispatch('products/GET_CATEGORY_FROM_API')
+    mounted() {
+        this.$store.dispatch('products/GET_PRODUCTS_FROM_API')
+        this.$store.dispatch('products/GET_CATEGORY_FROM_API')
     }
 }
 </script>
