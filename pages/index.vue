@@ -1,20 +1,60 @@
 <template>
-    <v-layout column justify-center align-center>
-        <v-flex xs12 sm8 md6>
-            <div class="text-center my-4">
-                <v-btn x-large to="/teatre" color="primary">Режим МЕНЮ</v-btn>
-                <v-btn x-large to="/products" color="primary"
-                    >Режим КАССА</v-btn
+    <v-container>
+        <div>
+            <v-col cols="12">
+                <v-row
+                    align="center"
+                    justify="center"
+                    class="grey lighten-5"
+                    style="height: 300px;"
                 >
-                <v-btn x-large color="primary">Режим менеджера</v-btn>
-            </div>
-        </v-flex>
-    </v-layout>
+                    <v-card
+                        v-for="item in navList"
+                        :key="item.to"
+                        :to="item.to"
+                        class="ma-3 pa-4"
+                        outlined
+                        tile
+                        width="400"
+                    >
+                        <v-btn
+                            class="md-4"
+                            tile
+                            x-large
+                            block
+                            :to="item.to"
+                            color="primary"
+                        >
+                            {{ item.title }}
+                        </v-btn>
+                    </v-card>
+                </v-row>
+            </v-col>
+        </div>
+    </v-container>
 </template>
 
 <script>
 export default {
     components: {},
+    data() {
+        return {
+            navList: [
+                {
+                    title: 'Режим меню',
+                    to: '/teatre'
+                },
+                {
+                    title: 'Режим КАССА',
+                    to: '/cash'
+                },
+                {
+                    title: 'Режим менеджер',
+                    to: '/'
+                }
+            ]
+        }
+    },
     mounted() {
         this.$store.dispatch('products/GET_PRODUCTS_FROM_API')
         this.$store.dispatch('products/GET_CATEGORY_FROM_API')
