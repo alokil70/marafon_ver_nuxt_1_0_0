@@ -57,7 +57,7 @@ export default {
      ** See https://axios.nuxtjs.org/options
      */
     axios: {
-        baseURL: process.env.URL
+        baseURL: 'http://192.168.0.3:9090/api'
     },
     /*
      ** vuetify module configuration

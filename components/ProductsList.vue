@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { URL_IMG } from '../static/const'
+
 export default {
     name: 'ProductsList',
     props: {
@@ -49,7 +51,7 @@ export default {
     },
     data() {
         return {
-            URL: 'http://192.168.0.3:9090/uploads/'
+            URL: URL_IMG
         }
     }
 }
