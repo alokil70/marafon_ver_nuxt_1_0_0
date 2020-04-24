@@ -11,7 +11,7 @@
             <nuxt />
         </v-container>
         <v-footer fixed app>
-            <span>&copy; {{ new Date() }}</span>
+            <span>&copy; {{ dateNow }}</span>
         </v-footer>
     </v-app>
 </template>
@@ -20,7 +20,27 @@
 export default {
     data() {
         return {
-            title: 'marafon'
+            title: 'MARAFON'
+        }
+    },
+    computed: {
+        // eslint-disable-next-line vue/return-in-computed-property
+        dateNow() {
+            const date = new Date()
+
+            const options = {
+                era: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long',
+                timezone: 'UTC',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric'
+            }
+
+            return date.toLocaleString('ru', options)
         }
     }
 }

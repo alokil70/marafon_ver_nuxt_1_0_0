@@ -11,16 +11,16 @@
                         <v-col
                             v-for="i in products"
                             :key="i.id"
-                            cols="5"
+                            cols="4"
                             md="4"
                             align="center"
                         >
                             <v-card
-                                width="200"
-                                min-height="70"
+                                width="240"
+                                min-height="120"
                                 aspect-ratio="1"
                                 justify="center"
-                                class="primary white--text pa-2"
+                                class="primary white--text pa-2 headline"
                                 tile
                                 >{{ i.productName }}</v-card
                             >

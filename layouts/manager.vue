@@ -41,7 +41,7 @@
             </v-btn>
             <v-toolbar-title v-text="title" />
             <v-spacer />
-            <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+            <v-btn @click.stop="rightDrawer = !rightDrawer">
                 <v-icon>mdi-menu</v-icon>
             </v-btn>
         </v-app-bar>
@@ -79,9 +79,9 @@
 export default {
     data() {
         return {
-            clipped: false,
+            clipped: true,
             drawer: false,
-            fixed: false,
+            fixed: true,
             items: [
                 {
                     icon: 'mdi-apps',
@@ -97,7 +97,7 @@ export default {
             miniVariant: false,
             right: true,
             rightDrawer: false,
-            title: 'Vuetify.js'
+            title: 'Marafon'
         }
     }
 }

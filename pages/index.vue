@@ -9,11 +9,11 @@
                         :to="item.to"
                         class="ma-8"
                         outlined
-                        width="100%"
+                        min-width="350px"
                     >
                         <v-btn
                             color="primary"
-                            class="md-8"
+                            class="md-8 headline"
                             x-large
                             block
                             height="100px"
@@ -45,7 +45,7 @@ export default {
                 },
                 {
                     title: 'Режим менеджер',
-                    to: '/'
+                    to: '/manager'
                 }
             ]
         }
