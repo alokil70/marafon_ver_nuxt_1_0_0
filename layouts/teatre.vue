@@ -1,7 +1,7 @@
 <template>
     <v-app>
-        <v-app-bar fixed app>
-            <v-toolbar-title v-text="title" />
+        <v-app-bar fixed app color="orange darken-4">
+            <v-toolbar-title class="white--text" v-text="title" />
             <v-spacer />
             <v-btn>
                 <v-icon>mdi-menu</v-icon>
@@ -19,7 +19,6 @@
 export default {
     data() {
         return {
-            rightDrawer: false,
             title: 'MARAFON Театр'
         }
     }

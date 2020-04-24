@@ -1,9 +1,9 @@
 <template>
     <div>
-        <v-tabs background-color="white" color="deep-purple accent-4" right>
-            <v-tab>Landscape</v-tab>
-            <v-tab>City</v-tab>
-            <v-tab>Abstract</v-tab>
+        <v-tabs right>
+            <v-tab>Бар</v-tab>
+            <v-tab>Кухня</v-tab>
+            <v-tab>Мангал</v-tab>
 
             <v-tab-item v-for="n in 3" :key="n">
                 <v-container fluid>
@@ -14,7 +14,6 @@
                             cols="5"
                             md="4"
                             align="center"
-                            class="grey lighten-5"
                         >
                             <v-card
                                 width="200"

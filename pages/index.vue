@@ -1,29 +1,24 @@
 <template>
     <v-container>
-        <div>
+        <div class="mt-12">
             <v-col cols="12">
-                <v-row
-                    align="center"
-                    justify="center"
-                    class="grey lighten-5"
-                    style="height: 300px;"
-                >
+                <v-row align="center" justify="center">
                     <v-card
                         v-for="item in navList"
                         :key="item.to"
                         :to="item.to"
-                        class="ma-3 pa-4"
+                        class="ma-8"
                         outlined
-                        tile
-                        width="400"
+                        width="100%"
                     >
                         <v-btn
-                            class="md-4"
-                            tile
+                            color="primary"
+                            class="md-8"
                             x-large
                             block
+                            height="100px"
                             :to="item.to"
-                            color="primary"
+                            elevation="18"
                         >
                             {{ item.title }}
                         </v-btn>
@@ -61,3 +56,4 @@ export default {
     }
 }
 </script>
+<style scoped></style>

@@ -1,14 +1,16 @@
 <template>
     <v-app>
         <v-app-bar fixed app>
-            <v-toolbar-title>{{ title }}</v-toolbar-title>
+            <v-toolbar-title v-text="title" />
+            <v-spacer />
+            <v-btn>
+                <v-icon>mdi-menu</v-icon>
+            </v-btn>
         </v-app-bar>
-        <v-content>
-            <v-container>
-                <nuxt />
-            </v-container>
-        </v-content>
-        <v-footer app>
+        <v-container style="padding: 50px">
+            <nuxt />
+        </v-container>
+        <v-footer fixed app>
             <span>&copy; {{ new Date() }}</span>
         </v-footer>
     </v-app>
@@ -18,8 +20,13 @@
 export default {
     data() {
         return {
-            title: 'MARAFON'
+            title: 'marafon'
         }
     }
 }
 </script>
+<style>
+.v-content__wrap {
+    background: orange;
+}
+</style>
