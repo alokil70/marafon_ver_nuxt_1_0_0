@@ -10,18 +10,12 @@
                     <v-row>
                         <v-col v-for="i in 6" :key="i" cols="12" md="4">
                             <v-img
-                                :src="
-                                    `https://picsum.photos/500/300?image=${i *
-                                        n *
-                                        5 +
-                                        10}`
-                                "
-                                :lazy-src="
-                                    `https://picsum.photos/10/6?image=${i *
-                                        n *
-                                        5 +
-                                        10}`
-                                "
+                                :src="`https://picsum.photos/500/300?image=${
+                                    i * n * 5 + 10
+                                }`"
+                                :lazy-src="`https://picsum.photos/10/6?image=${
+                                    i * n * 5 + 10
+                                }`"
                                 aspect-ratio="1"
                             ></v-img>
                         </v-col>
@@ -42,14 +36,14 @@ export default {
             type: Object,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
     data() {
         return {
-            URL: URL_IMG
+            URL: URL_IMG,
         }
-    }
+    },
 }
 </script>
 

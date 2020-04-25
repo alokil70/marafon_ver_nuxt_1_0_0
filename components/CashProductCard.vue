@@ -1,13 +1,17 @@
 <template>
     <div class="cash-product-card">
-        <v-btn
+        <v-card
             min-height="120"
             min-width="232"
             color="primary"
             tile
+            class="headline white--text"
             @click="addToCart"
-            >{{ obj.productName }}{{ cart }}</v-btn
-        >
+            >{{ obj.productName }}
+            <v-btn color="pink" fab small dark absolute top right>{{
+                co
+            }}</v-btn>
+        </v-card>
     </div>
 </template>
 
@@ -19,28 +23,24 @@ export default {
             type: Object,
             default() {
                 return {}
-            }
+            },
+        },
+    },
+    data() {
+        return {
+            co: null,
         }
     },
-    computed: {
-        cart() {
-            console.log('11111111111111111')
-            return this.$store.getters['cart/cart']
-        }
-    },
-    watch: {
-        count() {
-            return 1
-        }
-    },
+    computed: {},
     methods: {
         addToCart() {
             this.$store.dispatch('cart/ADD_TO_CART', {
                 product: this.obj,
-                quantity: 1
+                quantity: 1,
             })
-        }
-    }
+            this.co += 1
+        },
+    },
 }
 </script>
 

@@ -12,15 +12,15 @@ export default {
             { charset: 'utf-8' },
             {
                 name: 'viewport',
-                content: 'width=device-width, initial-scale=1'
+                content: 'width=device-width, initial-scale=1',
             },
             {
                 hid: 'description',
                 name: 'description',
-                content: process.env.npm_package_description || ''
-            }
+                content: process.env.npm_package_description || '',
+            },
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
     /*
      ** Customize the progress-bar color
@@ -40,7 +40,7 @@ export default {
     buildModules: [
         // Doc: https://github.com/nuxt-community/eslint-module
         '@nuxtjs/eslint-module',
-        '@nuxtjs/vuetify'
+        '@nuxtjs/vuetify',
     ],
     /*
      ** Nuxt.js modules
@@ -50,14 +50,14 @@ export default {
         '@nuxtjs/axios',
         '@nuxtjs/pwa',
         // Doc: https://github.com/nuxt-community/dotenv-module
-        '@nuxtjs/dotenv'
+        '@nuxtjs/dotenv',
     ],
     /*
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
     axios: {
-        baseURL: 'http://192.168.0.3:9090/api'
+        baseURL: 'http://192.168.0.195:9090/api',
     },
     /*
      ** vuetify module configuration
@@ -76,7 +76,7 @@ export default {
                     info: colors.teal.lighten1,
                     warning: colors.amber.base,
                     error: colors.deepOrange.accent4,
-                    success: colors.green.accent3
+                    success: colors.green.accent3,
                 },
                 light: {
                     primary: colors.blue,
@@ -85,10 +85,10 @@ export default {
                     info: colors.teal.lighten1,
                     warning: colors.amber.base,
                     error: colors.deepOrange.accent4,
-                    success: colors.green.accent3
-                }
-            }
-        }
+                    success: colors.green.accent3,
+                },
+            },
+        },
     },
     /*
      ** Build configuration
@@ -97,10 +97,10 @@ export default {
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {}
+        extend(config, ctx) {},
     },
     server: {
         port: 3333,
-        host: '0.0.0.0'
-    }
+        host: '0.0.0.0',
+    },
 }

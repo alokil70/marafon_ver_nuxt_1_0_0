@@ -53,21 +53,21 @@ export default {
     },
     data() {
         return {
-            URL: URL_IMG
+            URL: URL_IMG,
         }
     },
     computed: {
         ...mapState({
             products: (state) => state.products.products,
-            category: (state) => state.products.category
-        })
+            category: (state) => state.products.category,
+        }),
     },
     methods: {
         addToCart(data) {
             const qqq = this.products.find((i) => i.id === data.id)
             console.log(qqq)
-        }
-    }
+        },
+    },
 }
 </script>
 

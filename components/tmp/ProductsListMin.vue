@@ -46,14 +46,14 @@ export default {
             type: Object,
             default() {
                 return {}
-            }
-        }
+            },
+        },
     },
     data() {
         return {
-            URL: URL_IMG
+            URL: URL_IMG,
         }
-    }
+    },
 }
 </script>
 

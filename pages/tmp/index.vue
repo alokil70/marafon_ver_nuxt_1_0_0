@@ -25,22 +25,22 @@ export default {
             navList: [
                 {
                     title: 'Режим меню',
-                    to: '/teatre'
+                    to: '/teatre',
                 },
                 {
                     title: 'Режим КАССА',
-                    to: '/cash'
+                    to: '/cash',
                 },
                 {
                     title: 'Режим менеджер',
-                    to: '/'
-                }
-            ]
+                    to: '/',
+                },
+            ],
         }
     },
     mounted() {
         this.$store.dispatch('products/GET_PRODUCTS_FROM_API')
         this.$store.dispatch('products/GET_CATEGORY_FROM_API')
-    }
+    },
 }
 </script>

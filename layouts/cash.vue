@@ -117,16 +117,17 @@ export default {
     data() {
         return {
             title: 'Станция MARAFON',
-            menu: false
+            menu: false,
+            fav: false,
+            message: false,
+            hints: true,
         }
     },
     computed: {
         ...mapState({
-            cart: (state) => state.cart.cart
+            cart: (state) => state.cart.cart,
         }),
-        total() {
-            return this.cart.product.price
-        }
-    }
+    },
+    methods: {},
 }
 </script>

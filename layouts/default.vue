@@ -7,7 +7,7 @@
                 <v-icon>mdi-menu</v-icon>
             </v-btn>
         </v-app-bar>
-        <v-container style="padding: 50px">
+        <v-container style="padding: 50px;">
             <nuxt />
         </v-container>
         <v-footer fixed app>
@@ -20,11 +20,10 @@
 export default {
     data() {
         return {
-            title: 'MARAFON'
+            title: 'MARAFON',
         }
     },
     computed: {
-        // eslint-disable-next-line vue/return-in-computed-property
         dateNow() {
             const date = new Date()
 
@@ -37,12 +36,12 @@ export default {
                 timezone: 'UTC',
                 hour: 'numeric',
                 minute: 'numeric',
-                second: 'numeric'
+                second: 'numeric',
             }
 
             return date.toLocaleString('ru', options)
-        }
-    }
+        },
+    },
 }
 </script>
 <style>

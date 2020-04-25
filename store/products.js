@@ -1,6 +1,6 @@
 export const state = () => ({
     products: [],
-    category: []
+    category: [],
 })
 
 export const mutations = {
@@ -9,7 +9,7 @@ export const mutations = {
     },
     SET_CATEGORY_TO_STATE(state, payload) {
         state.category = payload
-    }
+    },
 }
 export const actions = {
     async GET_PRODUCTS_FROM_API({ commit }) {
@@ -19,10 +19,10 @@ export const actions = {
     async GET_CATEGORY_FROM_API({ commit }) {
         const response = await this.$axios.get('/category')
         commit('SET_CATEGORY_TO_STATE', response.data)
-    }
+    },
 }
 
 export const getters = {
     PRODUCTS: (s) => s.products,
-    CATEGORY: (s) => s.category
+    CATEGORY: (s) => s.category,
 }

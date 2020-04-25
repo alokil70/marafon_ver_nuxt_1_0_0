@@ -19,9 +19,9 @@
 export default {
     data() {
         return {
-            title: 'MARAFON Театр'
+            title: 'MARAFON Театр',
         }
-    }
+    },
 }
 </script>
 <style></style>

@@ -1,5 +1,5 @@
 export const state = () => ({
-    cart: []
+    cart: [],
 })
 
 export const mutations = {
@@ -10,14 +10,14 @@ export const mutations = {
             return
         }
         state.cart.push({ product, quantity })
-    }
+    },
 }
 export const actions = {
     ADD_TO_CART({ commit }, { product, quantity }) {
         commit('ADD_TO_CART', { product, quantity })
-    }
+    },
 }
 
 export const getters = {
-    CART: (s) => s.cart
+    CART: (s) => s.cart,
 }
