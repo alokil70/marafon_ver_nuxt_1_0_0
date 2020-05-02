@@ -90,8 +90,18 @@ export default {
                 },
                 {
                     icon: 'mdi-chart-bubble',
-                    title: 'Inspire',
-                    to: '/inspire',
+                    title: 'add',
+                    to: '/addProducts',
+                },
+                {
+                    icon: 'mdi-apps',
+                    title: 'Редактор',
+                    to: '/addProducts',
+                },
+                {
+                    icon: 'mdi-apps',
+                    title: 'Категории',
+                    to: '/categoryEdit',
                 },
             ],
             miniVariant: false,

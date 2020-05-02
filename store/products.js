@@ -20,6 +20,9 @@ export const actions = {
         const response = await this.$axios.get('/category')
         commit('SET_CATEGORY_TO_STATE', response.data)
     },
+    async categorySave({ commit }, postData) {
+        await this.$axios.post('/category', postData)
+    },
 }
 
 export const getters = {
