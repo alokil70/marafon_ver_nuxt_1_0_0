@@ -110,8 +110,8 @@ export default {
             local: {
                 token: {
                     property: 'token',
-                    // required: true,
-                    type: '',
+                    required: true,
+                    type: 'Bearer',
                 },
                 user: {
                     property: 'user',

@@ -34,7 +34,7 @@
                                     <v-col cols="12" sm="6" md="4">
                                         <v-text-field
                                             v-model="editedItem.description"
-                                            label="Calories"
+                                            label="Описание"
                                         ></v-text-field>
                                     </v-col>
                                     <v-col cols="12" sm="6" md="4">
@@ -49,10 +49,10 @@
 
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn color="blue darken-1" text @click="close"
+                            <v-btn color="primary" text @click="close"
                                 >Cancel
                             </v-btn>
-                            <v-btn color="blue darken-1" text @click="save"
+                            <v-btn color="primary" text @click="save"
                                 >Save
                             </v-btn>
                         </v-card-actions>

@@ -6,22 +6,21 @@
             <v-btn>
                 <v-icon>mdi-menu</v-icon>
             </v-btn>
-            <v-spacer />
             <div v-if="$auth.loggedIn">
-                {{ $auth.user.email }}
+                {{ $auth.user.name }}
                 <v-btn text @click="$auth.logout()">logout</v-btn>
             </div>
             <div v-else>
                 <v-btn text to="/login">login</v-btn>
             </div>
         </v-app-bar>
-        <the-snackbar />
         <v-container style="padding: 50px;">
             <nuxt />
         </v-container>
         <v-footer fixed app>
             <span>&copy; {{ dateNow }}</span>
         </v-footer>
+        <the-snackbar />
     </v-app>
 </template>
 
