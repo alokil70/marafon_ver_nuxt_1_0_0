@@ -6,7 +6,7 @@
             :clipped="clipped"
             mobile-break-point="1120"
             fixed
-            width="200"
+            width="230"
             app
         >
             <v-list>
@@ -69,7 +69,7 @@ export default {
     data() {
         return {
             clipped: true,
-            drawer: true,
+            drawer: false,
             fixed: false,
             items: [
                 {

@@ -15,7 +15,7 @@
                     <v-dialog v-model="dialog" max-width="500px">
                         <template v-slot:activator="{ on }">
                             <v-btn
-                                color="deep-purple"
+                                color="primary"
                                 small
                                 dark
                                 class="mb-2"
@@ -105,12 +105,12 @@
                 </v-toolbar>
             </template>
             <template v-slot:item.action="{ item }">
-                <v-icon small class="mr-2" @click="editItem(item)">
+                <!--<v-icon small class="mr-2" @click="editItem(item)">
                     edit
-                </v-icon>
-                <v-icon small @click="deleteItem(item)">
-                    delete
-                </v-icon>
+                </v-icon>-->
+                <v-btn color="red" dark x-small @click="deleteItem(item)">
+                    Удалить
+                </v-btn>
             </template>
             <template v-slot:no-data>
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -176,14 +176,15 @@ export default {
     }),
 
     computed: {
-        formTitle() {
-            return this.editedIndex === -1 ? 'Новое' : 'Edit Item'
-        },
         ...mapState({
             products: (state) => state.products.products,
             category: (state) => state.products.category,
         }),
+        formTitle() {
+            return this.editedIndex === -1 ? 'Новое блюдо' : 'Edit Item'
+        },
     },
+
     watch: {
         dialog(val) {
             val || this.close()
@@ -197,23 +198,26 @@ export default {
             this.dialog = true
         },
 
-        deleteItem(item) {
+        async deleteItem(item) {
             const index = this.productsFormList.indexOf(item)
-            confirm('Удалить?') && this.productsFormList.splice(index, 1)
-            this.$store.dispatch('products/productDelete', item.id)
-            this.$store.dispatch('products/fetch')
+            confirm('Удалить ?') && this.productsFormList.splice(index, 1)
+            await this.$store.dispatch(
+                'products/DELETE_PRODUCT_FROM_API',
+                item.id
+            )
+            await this.$store.dispatch('products/GET_PRODUCTS_FROM_API')
         },
 
-        close() {
+        async close() {
             this.dialog = false
             setTimeout(() => {
                 this.editedItem = Object.assign({}, this.defaultItem)
                 this.editedIndex = -1
             }, 300)
-            this.$store.dispatch('products/fetch')
+            await this.$store.dispatch('products/GET_PRODUCTS_FROM_API')
         },
 
-        save() {
+        async save() {
             if (this.editedIndex > -1) {
                 Object.assign(
                     this.productsFormList[this.editedIndex],
@@ -222,10 +226,15 @@ export default {
             } else {
                 this.productsFormList.push(this.editedItem)
 
-                const obj = this.category.find(
-                    (v) => v.categoryName === this.temp
-                )
-                this.editedItem.categoryId = obj.id
+                if (this.temp) {
+                    const obj = this.category.find(
+                        (v) => v.categoryName === this.temp
+                    )
+                    this.editedItem.categoryId = obj.id
+                } else
+                    this.editedItem.categoryId = this.category.find(
+                        (i) => i.categoryName !== ''
+                    ).id
 
                 const formData = new FormData()
                 for (const item in this.editedItem) {
@@ -233,7 +242,10 @@ export default {
                 }
                 formData.append('image', this.files)
 
-                this.$store.dispatch('products/objSave', formData)
+                await this.$store.dispatch(
+                    'products/POST_PRODUCT_TO_API',
+                    formData
+                )
             }
             this.files = null
             this.temp = ''

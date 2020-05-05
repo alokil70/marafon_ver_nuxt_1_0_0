@@ -13,12 +13,7 @@
                 <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on }">
-                        <v-btn
-                            color="deep-purple"
-                            small
-                            dark
-                            class="mb-2"
-                            v-on="on"
+                        <v-btn color="primary" small dark class="mb-2" v-on="on"
                             >Добавить
                         </v-btn>
                     </template>
@@ -66,12 +61,12 @@
             </v-toolbar>
         </template>
         <template v-slot:item.action="{ item }">
-            <v-icon small class="mr-2" @click="editItem(item)">
+            <!--<v-icon small class="mr-2" @click="editItem(item)">
                 edit
-            </v-icon>
-            <v-icon small @click="deleteItem(item)">
-                delete
-            </v-icon>
+            </v-icon>-->
+            <v-btn color="red" dark x-small @click="deleteItem(item)">
+                Удалить
+            </v-btn>
         </template>
         <template v-slot:no-data>
             <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -137,22 +132,26 @@ export default {
             this.dialog = true
         },
 
-        deleteItem(item) {
+        async deleteItem(item) {
             const index = this.categoryFormList.indexOf(item)
-            confirm('Are you sure you want to delete this item?') &&
-                this.desserts.splice(index, 1)
+            confirm('Удвлить ?') && this.categoryFormList.splice(index, 1)
+            await this.$store.dispatch(
+                'products/DELETE_CATEGORY_FROM_API',
+                item.id
+            )
+            await this.$store.dispatch('products/GET_CATEGORY_FROM_API')
         },
 
-        close() {
+        async close() {
             this.dialog = false
             setTimeout(() => {
                 this.editedItem = Object.assign({}, this.defaultItem)
                 this.editedIndex = -1
             }, 300)
-            this.$store.dispatch('products/GET_CATEGORY_FROM_API')
+            await this.$store.dispatch('products/GET_CATEGORY_FROM_API')
         },
 
-        save() {
+        async save() {
             if (this.editedIndex > -1) {
                 Object.assign(
                     this.categoryFormList[this.editedIndex],
@@ -160,7 +159,10 @@ export default {
                 )
             } else {
                 this.categoryFormList.push(this.editedItem)
-                this.$store.dispatch('products/categorySave', this.editedItem)
+                await this.$store.dispatch(
+                    'products/POST_CATEGORY_TO_API',
+                    this.editedItem
+                )
             }
             this.close()
         },

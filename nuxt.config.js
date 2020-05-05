@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
     mode: 'universal',
@@ -25,7 +26,7 @@ export default {
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#fff' },
+    loading: { color: '#f00' },
     /*
      ** Global CSS
      */
@@ -41,6 +42,7 @@ export default {
         // Doc: https://github.com/nuxt-community/eslint-module
         '@nuxtjs/eslint-module',
         '@nuxtjs/vuetify',
+        '@nuxtjs/dotenv',
     ],
     /*
      ** Nuxt.js modules
@@ -48,16 +50,16 @@ export default {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@nuxtjs/pwa',
         // Doc: https://github.com/nuxt-community/dotenv-module
-        '@nuxtjs/dotenv',
+        '@nuxtjs/pwa',
+        '@nuxtjs/auth',
     ],
     /*
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
     axios: {
-        baseURL: 'http://192.168.0.3:9090/api',
+        baseURL: process.env.BASE_URL || 'http://192.168.0.3:9090/api',
     },
     /*
      ** vuetify module configuration
@@ -102,5 +104,25 @@ export default {
     server: {
         port: 3333,
         host: '0.0.0.0',
+    },
+    auth: {
+        strategies: {
+            local: {
+                token: {
+                    property: 'token',
+                    // required: true,
+                    type: '',
+                },
+                user: {
+                    property: 'user',
+                    // autoFetch: true
+                },
+                endpoints: {
+                    login: { url: '/api/auth/login', method: 'post' },
+                    logout: { url: '/api/auth/logout', method: 'post' },
+                    user: { url: '/api/auth/user', method: 'get' },
+                },
+            },
+        },
     },
 }

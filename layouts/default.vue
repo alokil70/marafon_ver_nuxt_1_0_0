@@ -6,7 +6,16 @@
             <v-btn>
                 <v-icon>mdi-menu</v-icon>
             </v-btn>
+            <v-spacer />
+            <div v-if="$auth.loggedIn">
+                {{ $auth.user.email }}
+                <v-btn text @click="$auth.logout()">logout</v-btn>
+            </div>
+            <div v-else>
+                <v-btn text to="/login">login</v-btn>
+            </div>
         </v-app-bar>
+        <the-snackbar />
         <v-container style="padding: 50px;">
             <nuxt />
         </v-container>
@@ -17,7 +26,9 @@
 </template>
 
 <script>
+import TheSnackbar from '../components/TheSnackbar'
 export default {
+    components: { TheSnackbar },
     data() {
         return {
             title: 'MARAFON',
