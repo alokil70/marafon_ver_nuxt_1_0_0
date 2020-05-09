@@ -41,7 +41,7 @@ export default {
             showPassword: false,
             userInfo: {
                 name: '',
-                email: 'asd@gmail.com',
+                email: 'qwe@gmail.com',
                 password: 'qwertyuiop',
             },
             ...validations,

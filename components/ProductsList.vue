@@ -27,9 +27,7 @@
         </v-card-subtitle>
 
         <v-card-text class="white--text font-italic font-weight-light">
-            <div>Бефстроганов из курицы - очень нежный и вкусный.</div>
-
-            <div>Мясо в картофельной шубке - отказаться невозможно!</div>
+            <div>{{ product.description }}</div>
         </v-card-text>
 
         <v-card-actions />

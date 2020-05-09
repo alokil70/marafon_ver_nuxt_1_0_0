@@ -38,6 +38,7 @@ export default {
     name: 'Manager',
     layout: 'manager',
     data: () => ({
+        dialog: false,
         headers: [
             {
                 text: 'Dessert (100g serving)',
