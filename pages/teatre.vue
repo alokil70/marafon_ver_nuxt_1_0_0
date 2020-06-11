@@ -21,7 +21,7 @@ export default {
     name: 'Teatre',
     layout: 'teatre',
     components: { ProductsList },
-    async fetch({ store }) {
+    async asyncData({ store }) {
         if (
             store.getters['products/PRODUCTS'].length === 0 &&
             store.getters['products/CATEGORY'].length === 0

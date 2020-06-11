@@ -5,8 +5,7 @@
                 <v-row align="center" justify="center">
                     <v-card
                         v-for="item in navList"
-                        :key="item.to"
-                        :to="item.to"
+                        :key="item.id"
                         class="ma-8"
                         outlined
                         min-width="350px"
@@ -36,14 +35,17 @@ export default {
         return {
             navList: [
                 {
+                    id: 1,
                     title: 'Режим меню',
                     to: '/teatre',
                 },
                 {
+                    id: 2,
                     title: 'Режим КАССА',
                     to: '/cash',
                 },
                 {
+                    id: 3,
                     title: 'Режим менеджер',
                     to: '/manager',
                 },
