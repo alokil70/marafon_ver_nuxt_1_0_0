@@ -55,6 +55,7 @@ export default {
     mounted() {
         this.$store.dispatch('products/GET_PRODUCTS_FROM_API')
         this.$store.dispatch('products/GET_CATEGORY_FROM_API')
+        this.$store.dispatch('GET__FROM_API')
     },
 }
 </script>

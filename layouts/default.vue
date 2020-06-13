@@ -19,6 +19,8 @@
         </v-container>
         <v-footer fixed app>
             <span>&copy; {{ dateNow }}</span>
+            <v-spacer />
+            <span>License: {{ lic }}</span>
         </v-footer>
         <the-snackbar />
     </v-app>
@@ -35,21 +37,10 @@ export default {
     },
     computed: {
         dateNow() {
-            const date = new Date()
-
-            const options = {
-                era: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                weekday: 'long',
-                timezone: 'UTC',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-            }
-
-            return date.toLocaleString('ru', options)
+            return new Date().toLocaleString('ru')
+        },
+        lic() {
+            return this.$store.state.srvUser
         },
     },
 }
